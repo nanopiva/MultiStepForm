@@ -1,0 +1,885 @@
+#change-summary {
+  transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+/*FONT FILES ADDED*/
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Medium Font */
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Bold Font */
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+html {
+  background-color: var(--alabaster);
+}
+
+:root {
+  /*PRIMARY COLORS: */
+  --marine-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
+  /*NEUTRAL COLORS*/
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 0%, 100%);
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.full-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-height: 575px;
+  min-width: 310px;
+  margin: auto;
+  padding: 5rem 10rem;
+}
+.current-step-container {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+}
+#back-img-container-cs {
+  height: 96%;
+  width: 94%;
+  background-image: url("./assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+.forms-container {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 75%;
+  background-color: var(--white);
+}
+.steps-container {
+  display: flex;
+  padding: 2rem;
+  user-select: none;
+}
+.steps-container:first-of-type {
+  padding-top: 3.5rem;
+}
+.stepandtitles {
+  display: flex;
+  flex-direction: column;
+}
+.stepVisualButton {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  border: 1px solid #fff;
+  margin-right: 1rem;
+}
+
+.stepNumber {
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding-bottom: 0.2rem;
+  color: var(--cool-gray);
+}
+.stepTitle {
+  font-weight: 500;
+  color: var(--white);
+}
+
+/*YOUR INFO*/
+
+#YourInfo-Container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 6rem;
+  padding-top: 4rem;
+}
+.TitleForm {
+  font-weight: 600;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  color: var(--marine-blue);
+}
+
+.DescriptionForm {
+  font-weight: 400;
+  color: var(--cool-gray);
+  padding-bottom: 2rem;
+}
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.labelPlusWarning {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.warningMessage {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.labelNames {
+  color: var(--marine-blue);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.inputText {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.inputText:focus {
+  border-color: var(--marine-blue);
+  outline: none;
+}
+
+.inputText::placeholder {
+  color: var(--cool-gray);
+}
+
+/*RED BORDER IN CASE OF ERROR*/
+.inputError {
+  border-color: var(--strawberry-red);
+}
+#fieldset-yourinfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.backNextContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.backButton,
+.nextButton {
+  font-weight: 500;
+  width: 7rem;
+  margin: 3rem 0.7rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  filter: brightness(1.02);
+  user-select: none;
+}
+
+.backButton {
+  background-color: var(--light-gray);
+  color: var(--marine-blue);
+}
+
+.backButton:hover {
+  background-color: var(--marine-blue);
+  color: var(--white);
+}
+
+.nextButton {
+  background-color: var(--purplish-blue);
+  color: var(--white);
+  margin-left: auto;
+}
+
+.nextButton:hover {
+  background-color: var(--pastel-blue);
+  color: var(--marine-blue);
+}
+
+.activeStep {
+  background-color: var(--light-blue);
+  color: var(--marine-blue);
+}
+
+#SelectPlan-Container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 6rem;
+  padding-top: 4rem;
+}
+#plans-container {
+  display: flex;
+  justify-content: flex-start;
+}
+.plan-button {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  min-width: 105px;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 1rem;
+  margin-top: 0.2rem;
+  border: 1px solid var(--cool-gray);
+  outline: none;
+  user-select: none;
+  flex-shrink: 1;
+}
+.plan-button:hover {
+  border-color: var(--marine-blue);
+  cursor: pointer;
+}
+.plan-button img {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+.titlePriceDivMobile {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  margin-right: auto;
+  align-items: flex-start;
+}
+
+.title-plan {
+  color: var(--marine-blue);
+  font-weight: 500;
+  font-size: 15px;
+  padding-bottom: 0.3rem;
+}
+.price-plan {
+  color: var(--cool-gray);
+
+  font-size: 14px;
+}
+
+.plan-button-active {
+  border: 2px solid var(--marine-blue);
+  background-color: var(--light-blue);
+}
+
+#billing-option-container {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  padding-top: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#monthlytext {
+  font-weight: 500;
+  color: var(--marine-blue);
+  padding-right: 1rem;
+}
+#yearlytext {
+  font-weight: 500;
+  color: var(--marine-blue);
+  padding-left: 1rem;
+}
+
+/*SWITCH BUTTON*/
+
+.switch {
+  font-size: 12px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--marine-blue);
+  border: 1px solid #adb5bd;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.27em;
+  bottom: 0.25em;
+  background-color: #fff;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.4em);
+}
+
+.twomonthsfree {
+  padding: 0 0 1rem 1rem;
+  color: var(--marine-blue);
+}
+
+#Addons-Container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 6rem;
+  padding-top: 4rem;
+}
+
+#addons-button-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.checkbox-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--cool-gray);
+  outline: none;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.addon-input {
+  margin-right: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: var(--purplish-blue);
+  background-color: var(--purplish-blue);
+  cursor: pointer;
+}
+
+.checkbox-button label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.addon-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.addon-title {
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+  color: var(--marine-blue);
+}
+
+.addon-description {
+  color: var(--cool-gray);
+  font-weight: 400;
+  font-size: 0.92rem;
+}
+
+.addon-price-p {
+  color: var(--purplish-blue);
+  font-weight: 400;
+}
+
+.checkbox-button:hover {
+  background-color: var(--magnolia);
+}
+
+.addon-input:checked + label {
+  border-color: var(--marine-blue);
+}
+
+.addon-selected {
+  border: 1px solid var(--marine-blue);
+}
+#Summary-Container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 6rem;
+  padding-top: 4rem;
+}
+
+#summary-general {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--magnolia);
+}
+.summaryLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+#plan-summary-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+#firstSummaryLine::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 95%;
+  border-bottom: 1px solid rgba(98, 98, 98, 0.23);
+}
+#plan-summary {
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+#change-summary {
+  color: var(--cool-gray);
+  background-color: transparent;
+  align-items: center;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.itempricesummary {
+  color: var(--marine-blue);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+.addonSummary {
+  color: var(--cool-gray);
+  padding: 1rem;
+}
+.totalSummary {
+  color: var(--cool-gray);
+}
+.priceAddon {
+  color: var(--marine-blue);
+  font-weight: 400;
+  padding: 1rem;
+}
+#change-summary {
+  padding-top: 0.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#price-line {
+  padding-top: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#price-total {
+  font-size: 1.5rem;
+  color: var(--purplish-blue);
+  font-weight: 600;
+}
+#ConfirmContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+#imgConfirm {
+  padding-bottom: 2rem;
+}
+#descriptionConfirm {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 22px;
+}
+.footerBackNextContainer {
+  display: none;
+
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.backButtonF,
+.nextButtonF {
+  font-weight: 500;
+  width: 7rem;
+  margin: 3rem 0.7rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  filter: brightness(1.02);
+  user-select: none;
+}
+.nextButtonF {
+  background-color: var(--purplish-blue);
+  color: var(--white);
+  margin-left: auto;
+}
+
+.nextButtonF:hover {
+  background-color: var(--pastel-blue);
+  color: var(--marine-blue);
+}
+.backButtonF {
+  background-color: var(--light-gray);
+  color: var(--marine-blue);
+}
+
+.backButtonF:hover {
+  background-color: var(--marine-blue);
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  html {
+    background-color: var(--magnolia);
+  }
+  .full-container {
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .current-step-container {
+    flex-basis: 20%;
+  }
+  .forms-container {
+    display: flex;
+    flex-basis: 80%;
+    padding: 0 1rem;
+    position: relative;
+    background-color: var(--magnolia);
+  }
+  #back-img-container-cs {
+    height: 100%;
+    width: 100%;
+    background-image: url(/src/assets/images/bg-sidebar-mobile.svg);
+    border-radius: 0;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+  #ol-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 1rem;
+  }
+  .stepandtitles {
+    display: none;
+  }
+  .steps-container:first-of-type {
+    padding: 0;
+  }
+
+  .steps-container {
+    padding: 0;
+  }
+  .backNextContainer {
+    display: none;
+  }
+  .footerBackNextContainer {
+    display: flex;
+  }
+  .backButtonF,
+  .nextButtonF {
+    margin: 1.5rem 1rem 0 1rem;
+  }
+
+  /*YI PART*/
+  #YourInfo-Container {
+    background-color: var(--white);
+    height: 105%;
+    width: 95%;
+
+    position: absolute;
+    padding: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+  #fieldset-yourinfo {
+    padding-top: 0.8rem;
+  }
+  #nButtonYI {
+    margin-left: auto;
+  }
+  .DescriptionForm {
+    padding-bottom: 1rem;
+  }
+  /*SP PART*/
+  #SelectPlan-Container {
+    background-color: var(--white);
+    height: 105%;
+    width: 95%;
+    position: absolute;
+    padding: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+  #plans-container {
+    flex-direction: column;
+  }
+  .plan-button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .plan-button img {
+    padding: 1rem;
+  }
+  .titlePriceDivMobile {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: start;
+  }
+  .title-plan {
+    padding: 0;
+  }
+  .price-plan {
+    padding: 0;
+    padding-top: 0.4rem;
+  }
+  .twomonthsfree {
+    padding: 0;
+    padding-top: 0.4rem;
+  }
+  #billing-option-container {
+    padding-top: 1rem;
+  }
+  .footerBackNextContainer {
+    padding-bottom: 1rem;
+  }
+  /*ADDONS CONTAINER*/
+  #Addons-Container {
+    background-color: var(--white);
+    height: 100%;
+    width: 95%;
+    position: absolute;
+    padding: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+  .checkbox-button {
+    padding: 0.5rem;
+  }
+  .checkbox-button:last-of-type {
+    margin: 0;
+  }
+  /*SUMMARY CONTAINER*/
+  #Summary-Container {
+    background-color: var(--white);
+    height: 100%;
+    width: 95%;
+    position: absolute;
+    padding: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+  /*CONFIRM CONTAINER*/
+  #ConfirmContainer {
+    background-color: var(--white);
+    height: 100%;
+    width: 95%;
+    position: absolute;
+    padding: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+  #descriptionConfirm {
+    text-align: center;
+    margin: 0;
+    width: 85%;
+  }
+}
+
+@media (max-height: 640px), (max-width: 310px) {
+  .current-step-container {
+    flex-basis: 12%;
+  }
+  .forms-container {
+    flex-basis: 88%;
+    padding: 0;
+    position: inherit;
+    background-color: var(--white);
+  }
+  #YourInfo-Container {
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    padding: 1rem;
+    border-radius: 0;
+  }
+  #back-img-container-cs {
+    align-items: center;
+  }
+  #ol-container {
+    padding-top: 0;
+  }
+  #SelectPlan-Container {
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    padding: 1rem;
+    border-radius: 0;
+  }
+  #Addons-Container {
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    padding: 1rem;
+    border-radius: 0;
+  }
+  #Summary-Container {
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    padding: 1rem;
+    border-radius: 0;
+  }
+  #ConfirmContainer {
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    padding: 1rem;
+    border-radius: 0;
+  }
+}
+@media (max-width: 1060px) and (min-width: 769px) {
+  .full-container {
+    padding: 5rem 2rem;
+  }
+}
+/*ADDED CHANGES (TRANSITIONS)*/
+.inputText,
+.plan-button,
+.checkbox-button,
+.nextButton,
+.backButton,
+.addon-input {
+  transition: all 0.3s ease;
+}
+
+.inputText:focus {
+  transition: border-color 0.3s ease;
+}
+
+.plan-button:hover,
+.checkbox-button:hover,
+.nextButton:hover,
+.backButton:hover {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.switch .slider,
+.switch .slider:before {
+  transition: transform 0.4s ease, background-color 0.4s ease,
+    border-color 0.4s ease;
+}
